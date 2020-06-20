@@ -18,11 +18,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-      //  registerReceiver(mBroadcast, IntentFilter(MY_MESSAGE_GLOBAL))
+        registerReceiver(mBroadcast, IntentFilter(MY_MESSAGE_GLOBAL))
+   //    println("動態註冊")
     }
 
     private val mBroadcast = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
+            println("接收到了~~")
             if (MY_MESSAGE_GLOBAL == intent?.action) {
                 AlertDialog.Builder(this@MainActivity)
                     .setMessage("收到訊息了")
